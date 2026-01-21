@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var MarkMass = 78;
+        var JohnMass = 92;
+        var MarkHeight = 1.69;
+        var JohnHeight = 1.95;
+        var MarkBMI = Math.round(MarkMass / Math.pow(MarkHeight, 2));
+        var JohnBMI = Math.round(JohnMass / Math.pow(JohnHeight, 2));
+        console.log(MarkBMI)
+        console.log(JohnBMI);
+        if (MarkBMI > JohnBMI) {
+            console.log("Mark's BMI is higher than John's MBI");
+        } else {
+            console.log("Mark's BMI is lower than John's MBI");
+        }
+    </script>
+</body>
+</html>

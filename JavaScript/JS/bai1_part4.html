@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+        var billValue =275;
+        var minBillCheck = 50;
+        var maxBillCheck = 300;
+        var tip = 0;
+        tip = (billValue > minBillCheck && billValue < maxBillCheck) ? 15 : 20;
+        var tipValue = billValue * tip / 100
+        var finalBill = billValue + tipValue;
+        console.log("The bill was " + billValue + ", the tip was " + tipValue + "  and the total value " + finalBill);
+        
+    </script>
+</body>
+</html>

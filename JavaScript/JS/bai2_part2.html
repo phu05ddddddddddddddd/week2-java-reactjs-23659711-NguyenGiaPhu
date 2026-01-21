@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+      
+        function calcTip(billValue){
+            if ( billValue >= 50 && billValue <= 300){
+                return billValue*0.15;
+            }
+            else {
+                return billValue*0.2;
+            }
+
+        }
+        const  billValues=[100,200,350];
+        const tips= [];
+        const totals=[];
+
+        for (let i=0 ; i<billValues.length;i++){
+            const tip= calcTip(billValues[i]);
+            tips.push(tip);
+            totals.push(billValues[i]+tip)
+        }
+        console.log("Bills",billValues);
+        console.log("Tip",tips);
+        console.log("Totals",totals);
+        
+        
+
+
+    </script>
+</body>
+</html>
