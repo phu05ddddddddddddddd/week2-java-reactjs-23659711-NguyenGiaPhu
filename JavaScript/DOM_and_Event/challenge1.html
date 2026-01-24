@@ -1,0 +1,159 @@
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Guess Number</title>
+    </head>
+
+    <body
+        style="
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #1e1e1e;
+        color: #f1f1f1;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        "
+    >
+        <div
+        style="
+            width: 420px;
+            padding: 2rem;
+            border-radius: 12px;
+            background-color: #2a2a2a;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        "
+        >
+        <!-- TITLE -->
+        <h1 style="text-align: center; margin-bottom: 0.5rem">
+            Guess the Number
+        </h1>
+        <p style="text-align: center; color: #aaa">
+            (1 – 20)
+        </p>
+
+        <!-- NUMBER -->
+        <div
+            class="number"
+            style="
+            text-align: center;
+            font-size: 2.5rem;
+            background: #111;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            "
+        >
+            ?
+        </div>
+
+        <!-- INPUT -->
+        <input
+            type="number"
+            class="guess"
+            placeholder="Nhập số..."
+            style="
+                width: 100%;
+                height: 45px;
+                line-height: 45px;
+                padding: 0;
+                font-size: 1.2rem;
+                border-radius: 6px;
+                border: none;
+                outline: none;
+                text-align: center;
+            "
+/>
+
+
+        <!-- BUTTONS -->
+        <div
+            style="
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            "
+        >
+            <button
+            class="check"
+            style="
+                flex: 1;
+                margin-right: 0.5rem;
+                padding: 0.6rem;
+                font-size: 1rem;
+                cursor: pointer;
+            "
+            >
+            Check
+            </button>
+
+            <button
+            class="again"
+            style="
+                flex: 1;
+                margin-left: 0.5rem;
+                padding: 0.6rem;
+                font-size: 1rem;
+                cursor: pointer;
+            "
+            >
+            Again
+            </button>
+        </div>
+
+        <!-- INFO -->
+        <p class="message" style="margin-top: 1.5rem">
+            Bắt đầu đoán...
+        </p>
+
+        <p>Score: <span class="score">20</span></p>
+        <p>Highscore: <span class="highscore">0</span></p>
+        </div>
+
+        <!-- SCRIPT -->
+        <script>
+        let secretNumber = Math.trunc(Math.random() * 20) + 1;
+        let score = 20;
+        let highscore = 0;
+
+        document.querySelector('.check').addEventListener('click', function () {
+            const guess = Number(document.querySelector('.guess').value);
+
+            if (!guess) {
+            document.querySelector('.message').textContent = 'Chưa nhập số!';
+            } else if (guess === secretNumber) {
+            document.querySelector('.message').textContent = '🎉 Đúng rồi!';
+            document.querySelector('.number').textContent = secretNumber;
+
+            if (score > highscore) {
+                highscore = score;
+                document.querySelector('.highscore').textContent = highscore;
+            }
+            } else {
+            if (score > 1) {
+                document.querySelector('.message').textContent =
+                guess > secretNumber ? 'Quá cao!' : 'Quá thấp!';
+                score--;
+                document.querySelector('.score').textContent = score;
+            } else {
+                document.querySelector('.message').textContent = 'Bạn thua rồi!';
+                document.querySelector('.score').textContent = 0;
+            }
+            }
+        });
+
+        document.querySelector('.again').addEventListener('click', function () {
+            score = 20;
+            secretNumber = Math.trunc(Math.random() * 20) + 1;
+
+            document.querySelector('.message').textContent = 'Bắt đầu đoán...';
+            document.querySelector('.score').textContent = score;
+            document.querySelector('.number').textContent = '?';
+            document.querySelector('.guess').value = '';
+        });
+        </script>
+    </body>
+    </html>
