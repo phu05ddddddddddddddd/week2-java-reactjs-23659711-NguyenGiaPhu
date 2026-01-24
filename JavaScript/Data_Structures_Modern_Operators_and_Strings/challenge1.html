@@ -60,6 +60,10 @@ const { team1, x: draw, team2 } = game.odds;
 
 const printGoals = (...players) => (players.forEach(p => console.log(p)), console.log(players.length));
 
+printGoals('Davies','Muller','Lewandowski','Kimmich');
+printGoals(...game.scored);
+
+
 team1 < team2 && console.log(game.team1);
 team2 < team1 && console.log(game.team2);
 
