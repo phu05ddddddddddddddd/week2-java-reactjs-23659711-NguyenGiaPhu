@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borussia Dortmund',
+  players: [
+    [
+      'Neuer','Pavard','Martinez','Alaba','Davies',
+      'Kimmich','Goretzka','Coman','Muller','Gnabry','Lewandowski'
+    ],
+    [
+      'Burki','Schulz','Hummels','Akanji','Hakimi',
+      'Weigl','Witsel','Hazard','Brandt','Sancho','Gotze'
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnabry', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+function printGoals() {
+  for (let i = 0; i < game.scored.length; i++) {
+    console.log('Goal ' + (i + 1) + ': ' + game.scored[i]);
+  }
+}
+
+function calcAverageOdd() {
+  let total = 0;
+  const odds = Object.values(game.odds);
+
+  for (let i = 0; i < odds.length; i++) {
+    total += odds[i];
+  }
+
+  console.log('Average odd: ' + total / odds.length);
+}
+
+function printOdds() {
+  const oddsEntries = Object.entries(game.odds);
+
+  for (let i = 0; i < oddsEntries.length; i++) {
+    let key = oddsEntries[i][0];
+    let value = oddsEntries[i][1];
+
+    if (key === 'x') {
+      console.log('Odd of draw: ' + value);
+    } else {
+      console.log('Odd of victory ' + game[key] + ': ' + value);
+    }
+  }
+}
+
+function createScorers() {
+  const scorers = {};
+
+  for (let i = 0; i < game.scored.length; i++) {
+    let player = game.scored[i];
+
+    if (scorers[player]) {
+      scorers[player]++;
+    } else {
+      scorers[player] = 1;
+    }
+  }
+
+  console.log(scorers);
+}
+
+printGoals();
+calcAverageOdd();
+printOdds();
+createScorers();
+
+
+
+        function printGoals() {
+  for (let i = 0; i < game.scored.length; i++) {
+    console.log('Goal ' + (i + 1) + ': ' + game.scored[i]);
+  }
+}
+
+function calcAverageOdd() {
+  let total = 0;
+  const odds = Object.values(game.odds);
+
+  for (let i = 0; i < odds.length; i++) {
+    total += odds[i];
+  }
+
+  console.log('Average odd: ' + total / odds.length);
+}
+
+function printOdds() {
+  const oddsEntries = Object.entries(game.odds);
+
+  for (let i = 0; i < oddsEntries.length; i++) {
+    let key = oddsEntries[i][0];
+    let value = oddsEntries[i][1];
+
+    if (key === 'x') {
+      console.log('Odd of draw: ' + value);
+    } else {
+      console.log('Odd of victory ' + game[key] + ': ' + value);
+    }
+  }
+}
+
+function createScorers() {
+  const scorers = {};
+
+  for (let i = 0; i < game.scored.length; i++) {
+    let player = game.scored[i];
+
+    if (scorers[player]) {
+      scorers[player]++;
+    } else {
+      scorers[player] = 1;
+    }
+  }
+
+  console.log(scorers);
+}
+printGoals();
+calcAverageOdd();
+printOdds();
+createScorers();
+
+    </script>
+</body>
+</html>
